@@ -21,6 +21,11 @@ body{
   color: gray;
 }
 
+h5{
+  font-family: 'Oswald', sans-serif;
+  color: gray;
+}
+
 main{
   flex: 1 0 auto;
 }

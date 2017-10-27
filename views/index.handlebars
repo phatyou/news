@@ -14,7 +14,7 @@
         <h4>{{this.title}}</h4>
         {{!-- goes to article.handlebars --}}
         <a href = {{this.link}} class="waves-effect waves-light btn yellow lighten-2" id="btnSignUp">Read Article</a>
-        <a class="waves-effect waves-light btn view yellow lighten-2" onclick="$('#modal1').modal('open');"><i class="material-icons right">feedback</i>Comment</a>
+        <a class="waves-effect waves-light btn yellow lighten-2" id="btnSignUp" onclick="$('#modal1').modal('open');"><i class="material-icons right">feedback</i>Comment</a>
       </div>
     {{/each}}
   </div>
@@ -45,7 +45,7 @@
        <!-- Submit Button -->
       <div class="row center-align">
         <div class="input-field center-align">
-        <input class="btn add-comment-button pink lighten-1" type="submit" value="Submit">
+        <input class="waves-effect waves-light btn yellow lighten-2" id="btnSignUp" type="submit" value="Submit">
         </div>
       </div>
     </form>
