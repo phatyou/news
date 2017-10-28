@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
 // A GET request to scrape the Oddee website
 router.get('/scrape', function(req, res) {
     // First, we grab the body of the html with request
-    request('http://www.theverge.com/tech', function(error, response, html) {
+    request('http://www.theverge.com/culture', function(error, response, html) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(html);
         var titlesArray = [];
@@ -57,7 +57,7 @@ router.get('/scrape', function(req, res) {
             //ensures that no empty title or links are sent to mongodb
             if(result.title !== "" && result.link !== ""){
               //check for duplicates
-              if(titlesArray.indexOf(result.title) == -1){
+              if(titlesArray.indexOf(result.title) == 1){
 
                 // push the saved title to the array 
                 titlesArray.push(result.title);
@@ -197,7 +197,7 @@ router.post('/comment/:id', function(req, res) {
                 if (err) {
                     console.log(err);
                 } else {
-                    res.redirect('/readArticle/' + articleId);
+                    res.redirect('/articles/' + articleId);
                 }
             });
         }

@@ -1,7 +1,7 @@
 {
   "name": "scrape-the-news",
   "version": "1.0.0",
-  "description": "Uses Mongoose to Scrape news articles from a news website using Cheerio; allows the user to make comments and delete them.",
+  "description": "Uses Mongoose to Scrape news articles from a news website using Cheerio; allows the user to make comments.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
