@@ -1,8 +1,8 @@
 <div>
-    <h1 class="card z-depth-3 center-align">Weird and Interesting: <hr> News from Oddee</h1>
+    <h1 class="card z-depth-3 center-align"><hr> News from the Verge</h1>
     <div class="row">
       <div class="col s3"></div>
-      <h5 class="card z-depth-5 center-align col s6">Featuring the crazy, strange and bizarre.</h5>
+      <h5 class="card z-depth-5 center-align col s6">All the news that's fit to scrape.</h5>
     </div>
 </div>
 
@@ -13,8 +13,8 @@
       <div class="card-panel">
         <h4>{{this.title}}</h4>
         {{!-- goes to article.handlebars --}}
-        <a href = {{this.link}} class="waves-effect waves-light btn yellow lighten-2" id="btnSignUp">Read Article</a>
-        <a class="waves-effect waves-light btn yellow lighten-2" id="btnSignUp" onclick="$('#modal1').modal('open');"><i class="material-icons right">feedback</i>Comment</a>
+        <a href = {{this.link}} class="waves-effect waves-light btn black lighten-2" id="btnSignUp">Read Article</a>
+        <a class="waves-effect waves-light btn black lighten-2" id="btnSignUp" onclick="$('#modal1').modal('open');"><i class="material-icons right">feedback</i>Comment</a>
       </div>
     {{/each}}
   </div>
@@ -28,7 +28,7 @@
 <!-- Modal Structure -->
 
   <div class="modal" id="modal1">
-   <form action="" method="POST" class="col s12">
+   <form action="" method= "POST" class="col s12">
     <h5>Comment on this Article:</h5>
       <div class="row">
         <div class="input-field col s6">
@@ -45,7 +45,7 @@
        <!-- Submit Button -->
       <div class="row center-align">
         <div class="input-field center-align">
-        <input class="waves-effect waves-light btn yellow lighten-2" id="btnSignUp" type="submit" value="Submit">
+        <input class="waves-effect waves-light btn black lighten-2" id="btnSignUp" type="submit" value="Submit">
         </div>
       </div>
     </form>

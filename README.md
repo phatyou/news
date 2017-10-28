@@ -1,5 +1,4 @@
 # news
-
 Uses Cheerio to scrape news articles from a site and allows the user to ?.
 
 ## Technologies used
@@ -24,8 +23,7 @@ Uses Cheerio to scrape news articles from a site and allows the user to ?.
 ## Built With
 
 * Sublime Text - Text Editor
-* Nodejs
+* Node
 * Mongoose/MongoDB
-* Robo 3.T
-* Materialize
-
+* Robomongo - Download the latest version https://robomongo.org/
+* Materialize - Wireframe

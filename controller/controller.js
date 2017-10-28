@@ -31,12 +31,21 @@ router.get('/', function(req, res) {
 // A GET request to scrape the Oddee website
 router.get('/scrape', function(req, res) {
     // First, we grab the body of the html with request
-    request('https://www.oddee.com/', function(error, response, html) {
+    request('http://www.theverge.com/tech', function(error, response, html) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(html);
         var titlesArray = [];
         // Now, we grab every article
-        $('.co17').each(function(i, element) {
+        $('.c-entry-box--compact__title').each(function(i, element) {
+            // Save an empty result object
+// router.get('/scrape', function(req, res) {
+//     // First, we grab the body of the html with request
+//     request('https://www.oddee.com/lists/', function(error, response, html) {
+//         // Then, we load that into cheerio and save it to $ for a shorthand selector
+//         var $ = cheerio.load(html);
+//         var titlesArray = [];
+//         // Now, we grab every article
+//         $('.col9').each(function(i, element) {
             // Save an empty result object
             var result = {};
 
@@ -162,37 +171,37 @@ router.get('/articles-json', function(req, res) {
 // });
 
 // Create a new comment
-// router.post('/comment/:id', function(req, res) {
-//   var user = req.body.name;
-//   var content = req.body.comment;
-//   var articleId = req.params.id;
+router.post('/comment/:id', function(req, res) {
+  var user = req.body.name;
+  var content = req.body.comment;
+  var articleId = req.params.id;
 
-//   //submitted form
-//   var commentObj = {
-//     name: user,
-//     body: content
-//   };
+  //submitted form
+  var commentObj = {
+    name: user,
+    body: content
+  };
  
-//   //using the Comment model, create a new comment
-//   var newComment = new Comment(commentObj);
+  //using the Comment model, create a new comment
+  var newComment = new Comment(commentObj);
 
-//   newComment.save(function(err, doc) {
-//       if (err) {
-//           console.log(err);
-//       } else {
-//           console.log(doc._id)
-//           console.log(articleId)
-//           Article.findOneAndUpdate({ "_id": req.params.id }, {$push: {'comment':doc._id}}, {new: true})
-//             //execute everything
-//             .exec(function(err, doc) {
-//                 if (err) {
-//                     console.log(err);
-//                 } else {
-//                     res.redirect('/readArticle/' + articleId);
-//                 }
-//             });
-//         }
-//   });
-// });
+  newComment.save(function(err, doc) {
+      if (err) {
+          console.log(err);
+      } else {
+          console.log(doc._id)
+          console.log(articleId)
+          Article.findOneAndUpdate({ "_id": req.params.id }, {$push: {'comment':doc._id}}, {new: true})
+            //execute everything
+            .exec(function(err, doc) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.redirect('/readArticle/' + articleId);
+                }
+            });
+        }
+  });
+});
 
 module.exports = router;

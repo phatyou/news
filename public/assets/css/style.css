@@ -8,33 +8,61 @@ body{
   flex-direction: column;
 }
 
-.nav-wrapper{
-  background-color: #ddd454;
+/*.nav-wrapper{
+  background-color: #e5127d;
+}*/
+
+nav ul a {
+    transition: background-color .3s;
+    font-size: 1.5rem;
+    color: #554b4e;
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+    font-family: 'Pacifico', cursive;
 }
 
+.dare{
+  background-color: #e5127d;
+}
 .brand-logo {
   font-family: 'Pacifico', cursive;
+  background-color: #e5127d;
 }
 
 #btnSignUp {
   font-family: 'Oswald', sans-serif;
-  color: gray;
+  color: #e5127d;
 }
 
+h1{
+  font-family: 'Trocchi', serif;
+}
+h4{
+  font-family: 'Lora', serif;
+}
 h5{
   font-family: 'Oswald', sans-serif;
-  color: gray;
+  color: #e5127d;
 }
 
 main{
   flex: 1 0 auto;
 }
 
-.articleBody{
+li{
+  color: #e5127d;;
+}
+
+/*.articleBody{
   height: 200px;
   font-size: 20px;
   overflow-y: scroll;
   line-height: 150%;
+}*/
+.footer-copyright{
+  font-family: 'Lora', serif;
+  /*background-color: #e5127d;*/
 }
 
 #nameComment{

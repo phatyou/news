@@ -1,5 +1,5 @@
 {
-  "name": "news",
+  "name": "scrape-the-news",
   "version": "1.0.0",
   "description": "Uses Mongoose to Scrape news articles from a news website using Cheerio; allows the user to make comments and delete them.",
   "main": "server.js",
@@ -12,7 +12,7 @@
     "url": ""
   },
   "keywords": [],
-  "author": "Jennifer Mitchell",
+  "author": "",
   "license": "",
   "bugs": {
     "url": ""
