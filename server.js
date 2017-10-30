@@ -23,7 +23,13 @@ app.set('view engine', 'handlebars');
 //connecting to MongoDB
 // mongoose.connect('mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1');
 
-mongoose.connect('mongodb://localhost/scraped_mnews');
+// mongoose.connect('mongodb://localhost/scraped_mnews');
+
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/scraped_mnews';
+//Mongoose data base connection configuration. Name of DB will be scraped_mnews.
+
+mongoose.connect(MONGODB_URI);
+// var db = mongoose.connection;
 
 
 var db = mongoose.connection;
