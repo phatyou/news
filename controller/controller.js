@@ -32,6 +32,7 @@ router.get('/', function(req, res) {
 router.get('/scrape', function(req, res) {
     // First, we grab the body of the html with request
     request('http://www.theverge.com/culture', function(error, response, html) {
+      console.log(response);
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(html);
         var titlesArray = [];
