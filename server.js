@@ -83,14 +83,18 @@ app.use(express.static("public"));
 //mongoose.connect("mongodb://localhost:3000/week18day3mongoose");
 // mongoose.connect("mongodb://localhost/mongoscrape");
  //mongoose.connect("mongodb://localhost:32769/week18day3mongoose");
-mongoose.connect('mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1');
+// mongoose.connect('mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1');
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scraped_mnews";
+//Mongoose data base connection configuration. Name of DB will be yTimesCheerioScraper
+// var db = mongoose.connection;
+mongoose.connect(MONGODB_URI);
 var db = mongoose.connection;
-
 // Show any mongoose errors
 db.on("error", function(error) {
   console.log("Mongoose Error: ", error);
 });
 
+// require("./routes/savedArticles-routes.js")(app);
 // Once logged in to the db through mongoose, log a success message
 db.once("open", function() {
   console.log("Mongoose connection successful.");
