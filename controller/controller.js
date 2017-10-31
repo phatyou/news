@@ -83,9 +83,9 @@ router.get('/scrape', function(req, res) {
             });
         }
         // Log that scrape is working, just the content was missing parts
-        else{
-          console.log('Article already exists.')
-        }
+        // else{
+        //   console.log('Article already exists.')
+        // }
 
           }
           // Log that scrape is working, just the content was missing parts

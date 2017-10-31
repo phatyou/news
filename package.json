@@ -1,5 +1,5 @@
 {
-  "name": "scrape-the-news",
+  "name": "news-scraper",
   "version": "1.0.0",
   "description": "Uses Mongoose to Scrape news articles from a news website using Cheerio; allows the user to make comments.",
   "main": "server.js",
