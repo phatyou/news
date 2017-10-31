@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars');
 
 var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/scraped_mnews';
 //Mongoose data base connection configuration. Name of DB will be scraped_mnews.
-
+console.log(MONGODB_URI);
 mongoose.connect(MONGODB_URI);
 // var db = mongoose.connection;
 
