@@ -90,9 +90,9 @@ router.get('/scrape', function(req, res) {
 
           }
           // Log that scrape is working, just the content was missing parts
-          else{
-            console.log('Not saved to DB, missing data')
-          }
+          // else{
+          //   console.log('Not saved to DB, missing data')
+          // }
         });
         // after scrape, redirects to index
         res.redirect('/');
@@ -172,37 +172,37 @@ router.get('/articles-json', function(req, res) {
 // });
 
 // Create a new comment
-router.post('/comment/:id', function(req, res) {
-  var user = req.body.name;
-  var content = req.body.comment;
-  var articleId = req.params.id;
+// router.post('/comment/:id', function(req, res) {
+//   var user = req.body.name;
+//   var content = req.body.comment;
+//   var articleId = req.params.id;
 
-  //submitted form
-  var commentObj = {
-    name: user,
-    body: content
-  };
+//   //submitted form
+//   var commentObj = {
+//     name: user,
+//     body: content
+//   };
  
-  //using the Comment model, create a new comment
-  var newComment = new Comment(commentObj);
+//   //using the Comment model, create a new comment
+//   var newComment = new Comment(commentObj);
 
-  newComment.save(function(err, doc) {
-      if (err) {
-          console.log(err);
-      } else {
-          console.log(doc._id)
-          console.log(articleId)
-          Article.findOneAndUpdate({ "_id": req.params.id }, {$push: {'comment':doc._id}}, {new: true})
-            //execute everything
-            .exec(function(err, doc) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    res.redirect('/articles/' + articleId);
-                }
-            });
-        }
-  });
-});
+//   newComment.save(function(err, doc) {
+//       if (err) {
+//           console.log(err);
+//       } else {
+//           console.log(doc._id)
+//           console.log(articleId)
+//           Article.findOneAndUpdate({ "_id": req.params.id }, {$push: {'comment':doc._id}}, {new: true})
+//             //execute everything
+//             .exec(function(err, doc) {
+//                 if (err) {
+//                     console.log(err);
+//                 } else {
+//                     res.redirect('/articles/' + articleId);
+//                 }
+//             });
+//         }
+//   });
+// });
 
 module.exports = router;
