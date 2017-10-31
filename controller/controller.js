@@ -28,7 +28,7 @@ router.get('/', function(req, res) {
 //   });
 // });
 
-// A GET request to scrape the Oddee website
+// A GET request to scrape the website
 router.get('/scrape', function(req, res) {
     // First, we grab the body of the html with request
     request('http://www.theverge.com/culture', function(error, response, html) {
