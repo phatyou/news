@@ -23,8 +23,11 @@ app.set('view engine', 'handlebars');
 //connecting to MongoDB
 // mongoose.connect('mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1');
 
-mongoose.connect('mongodb://localhost/scraped_mnews');
-
+// mongoose.connect();
+mongoose.connect(process.env.MONGOD_URI || 'mongodb://localhost/scraped_mnews', function (error) {
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
 // MONGODB_URI: mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1
 
 
