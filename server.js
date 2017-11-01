@@ -76,10 +76,15 @@ app.set('view engine', 'handlebars');
 
 //mongoose.connect('mongodb://localhost/scraped_news');
 
-var MONGODB_URI = 'mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1' || "mongodb://localhost/localhost/scraped_mnews";
-//Mongoose data base connection configuration.
 
-mongoose.connect(MONGODB_URI);
+// var MONGODB_URI = 'mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1' || "mongodb://localhost/localhost/scraped_mnews";
+// //Mongoose data base connection configuration.
+
+// mongoose.connect(MONGODB_URI);
+// var db = mongoose.connection;
+mongoose.connect('mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1');
+
+
 var db = mongoose.connection;
 
 
