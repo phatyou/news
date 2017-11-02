@@ -82,10 +82,10 @@ var Article = require('../models/Article.js');
 // var Comment = require('../models/Comment.js');
 // var Article = require('../models/Article.js');
 
-// //index
-// router.get('/', function(req, res) {
-//     res.redirect('/articles');
-// });
+//index
+router.get('/', function(req, res) {
+    res.redirect('/articles');
+});
 
 // router.get('/test-scrape', function(req, res) {
 //   request(result.link, function(error, response, html) {
@@ -130,7 +130,7 @@ router.get('/scrape', function(req, res) {
             //ensures that no empty title or links are sent to mongodb
             if(result.title !== "" && result.link !== ""){
               //check for duplicates
-              if(titlesArray.indexOf(result.title) == 1){
+              if(titlesArray.indexOf(result.title) == -1){
 
                 // push the saved title to the array 
                 titlesArray.push(result.title);
@@ -171,31 +171,31 @@ router.get('/scrape', function(req, res) {
     });
 });
 
-// //this will grab every article an populate the DOM
-// router.get('/articles', function(req, res) {
-//     //allows newer articles to be on top
-//     Article.find().sort({_id: -1})
-//         //send to handlebars
-//         .exec(function(err, doc) {
-//             if(err){
-//                 console.log(err);
-//             } else{
-//                 var artcl = {article: doc};
-//                 res.render('index', artcl);
-//             }
-//     });
-// });
+//this will grab every article an populate the DOM
+router.get('/articles', function(req, res) {
+    //allows newer articles to be on top
+    Article.find().sort({_id: -1})
+        //send to handlebars
+        .exec(function(err, doc) {
+            if(err){
+                console.log(err);
+            } else{
+                var artcl = {article: doc};
+                res.render('index', artcl);
+            }
+    });
+});
 
-// // This will get the articles we scraped from the mongoDB in JSON
-// router.get('/articles-json', function(req, res) {
-//     Article.find({}, function(err, doc) {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             res.json(doc);
-//         }
-//     });
-// });
+// This will get the articles we scraped from the mongoDB in JSON
+router.get('/articles-json', function(req, res) {
+    Article.find({}, function(err, doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(doc);
+        }
+    });
+});
 
 //clear all articles for testing purposes
 // router.get('/clearAll', function(req, res) {
