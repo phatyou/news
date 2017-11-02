@@ -69,23 +69,23 @@ var Article = require('../models/Article.js');
 //   res.send("Scrape Complete");
 // });
 
-dependencies
-var express = require('express');
-var router = express.Router();
-var path = require('path');
+// dependencies
+// var express = require('express');
+// var router = express.Router();
+// var path = require('path');
 
-//require request and cheerio to scrape
-var request = require('request');
-var cheerio = require('cheerio');
+// //require request and cheerio to scrape
+// var request = require('request');
+// var cheerio = require('cheerio');
 
-//Require models
-var Comment = require('../models/Comment.js');
-var Article = require('../models/Article.js');
+// //Require models
+// var Comment = require('../models/Comment.js');
+// var Article = require('../models/Article.js');
 
-//index
-router.get('/', function(req, res) {
-    res.redirect('/articles');
-});
+// //index
+// router.get('/', function(req, res) {
+//     res.redirect('/articles');
+// });
 
 // router.get('/test-scrape', function(req, res) {
 //   request(result.link, function(error, response, html) {
@@ -99,7 +99,7 @@ router.get('/', function(req, res) {
 //   });
 // });
 
-A GET request to scrape the website
+// A GET request to scrape the website
 router.get('/scrape', function(req, res) {
     // First, we grab the body of the html with request
     request('http://www.theverge.com/culture', function(error, response, html) {
