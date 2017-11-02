@@ -174,7 +174,7 @@ router.get('/scrape', function(req, res) {
 //this will grab every article an populate the DOM
 router.get('/articles', function(req, res) {
     //allows newer articles to be on top
-    Article.find().sort({_id: -1})
+    Article.find().sort({_id: 1})
         //send to handlebars
         .exec(function(err, doc) {
             if(err){
