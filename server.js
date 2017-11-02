@@ -48,6 +48,7 @@
 //dependencies
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+// var mongojs = require("mongojs");
 var logger = require('morgan');
 
 //initialize Express app
@@ -74,17 +75,18 @@ app.set('view engine', 'handlebars');
 //     else console.log('mongo connected');
 // mongoose.connect('mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1');
 
-// mongoose.connect('mongodb://localhost/scraped_mnews');
+// mongoose.connect('mongodb://localhost/scrapedDataHow');
 
-var mongoose = require('mongoose');    
 
-var uri = 'mongodb://application_user:12345678@ds237855.mlab.com:37855/heroku_v2stl7h1';
+// var mongoose = require('mongoose');    
 
-mongoose.Promise = global.Promise
+// var uri = 'mongodb://application_user:12345678@ds237855.mlab.com:37855/heroku_v2stl7h1';
 
-mongoose.connect(uri);
+// mongoose.Promise = global.Promise
 
-var db = mongoose.connection;
+// mongoose.connect(uri);
+
+// var db = mongoose.connection;
 
 
 // var MONGODB_URI = '';
@@ -97,7 +99,20 @@ var db = mongoose.connection;
 
 
 // var db = mongoose.connection;
+// var databaseUrl = "scraper";
+// var collections = ["scrapedData"];
 
+// Hook mongojs configuration to the db variable
+// var db = mongojs(databaseUrl, collections);
+// db.on("error", function(error) {
+//   console.log("Database Error:", error);
+// });
+
+var MONGODB_URI = process.env.MONGODB_URI;
+
+//Database configuration with mongoose
+mongoose.connect(MONGODB_URI);
+var db = mongoose.connection;
 
 //Show Mongoose connection error
 db.on("error",(error) => {

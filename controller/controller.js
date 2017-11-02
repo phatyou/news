@@ -7,6 +7,77 @@ var path = require('path');
 var request = require('request');
 var cheerio = require('cheerio');
 
+
+//Require models
+var Comment = require('../models/Comment.js');
+var Article = require('../models/Article.js');
+
+// // Main route (simple Hello World Message)
+// router.get("/", function(req, res) {
+//   res.send("Hello world");
+// });
+
+// // Retrieve data from the db
+// router.get("/all", function(req, res) {
+//   // Find all results from the scrapedData collection in the db
+//   db.scrapedDataHow.find({}, function(error, found) {
+//     // Throw any errors to the console
+//     if (error) {
+//       console.log(error);
+//     }
+//     // If there are no errors, send the data to the browser as json
+//     else {
+//       res.json(found);
+//     }
+//   });
+// });
+
+// // Scrape data from one site and place it into the mongodb db
+// router.get("/scrape", function(req, res) {
+//   // Make a request for the news section of ycombinator
+//   request("https://news.ycombinator.com/", function(error, response, html) {
+//     // Load the html body from request into cheerio
+//     var $ = cheerio.load(html);
+//     // For each element with a "title" class
+//     $(".title").each(function(i, element) {
+//       // Save the text and href of each link enclosed in the current element
+//       var title = $(element).children("a").text();
+//       var link = $(element).children("a").attr("href");
+
+//       // If this found element had both a title and a link
+//       if (title && link) {
+//         // Insert the data in the scrapedData db
+//         db.scrapedDataHow.insert({
+//           title: title,
+//           link: link
+//         },
+//         function(err, inserted) {
+//           if (err) {
+//             // Log the error if one is encountered during the query
+//             console.log(err);
+//           }
+//           else {
+//             // Otherwise, log the inserted data
+//             console.log(Inserted);
+//           }
+//         });
+//       }
+//     });
+//   });
+
+//   // Send a "Scrape Complete" message to the browser
+//   res.send("Scrape Complete");
+// });
+
+dependencies
+var express = require('express');
+var router = express.Router();
+var path = require('path');
+
+//require request and cheerio to scrape
+var request = require('request');
+var cheerio = require('cheerio');
+
 //Require models
 var Comment = require('../models/Comment.js');
 var Article = require('../models/Article.js');
@@ -28,15 +99,17 @@ router.get('/', function(req, res) {
 //   });
 // });
 
-// A GET request to scrape the website
+A GET request to scrape the website
 router.get('/scrape', function(req, res) {
     // First, we grab the body of the html with request
     request('http://www.theverge.com/culture', function(error, response, html) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
-        var $ = cheerio.load(html);
+        var $ = cheerio.load(html);//we're okay to this point, look after this point ...
         var titlesArray = [];
+
         // Now, we grab every article
         $('.c-entry-box--compact__title').each(function(i, element) {
+            console.log(element);
             // Save an empty result object
 // router.get('/scrape', function(req, res) {
 //     // First, we grab the body of the html with request
@@ -98,31 +171,31 @@ router.get('/scrape', function(req, res) {
     });
 });
 
-//this will grab every article an populate the DOM
-router.get('/articles', function(req, res) {
-    //allows newer articles to be on top
-    Article.find().sort({_id: -1})
-        //send to handlebars
-        .exec(function(err, doc) {
-            if(err){
-                console.log(err);
-            } else{
-                var artcl = {article: doc};
-                res.render('index', artcl);
-            }
-    });
-});
+// //this will grab every article an populate the DOM
+// router.get('/articles', function(req, res) {
+//     //allows newer articles to be on top
+//     Article.find().sort({_id: -1})
+//         //send to handlebars
+//         .exec(function(err, doc) {
+//             if(err){
+//                 console.log(err);
+//             } else{
+//                 var artcl = {article: doc};
+//                 res.render('index', artcl);
+//             }
+//     });
+// });
 
-// This will get the articles we scraped from the mongoDB in JSON
-router.get('/articles-json', function(req, res) {
-    Article.find({}, function(err, doc) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(doc);
-        }
-    });
-});
+// // This will get the articles we scraped from the mongoDB in JSON
+// router.get('/articles-json', function(req, res) {
+//     Article.find({}, function(err, doc) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.json(doc);
+//         }
+//     });
+// });
 
 //clear all articles for testing purposes
 // router.get('/clearAll', function(req, res) {
