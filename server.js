@@ -74,18 +74,29 @@ app.set('view engine', 'handlebars');
 //     else console.log('mongo connected');
 // mongoose.connect('mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1');
 
-//mongoose.connect('mongodb://localhost/scraped_news');
+// mongoose.connect('mongodb://localhost/scraped_mnews');
 
+var mongoose = require('mongoose');    
 
-// var MONGODB_URI = 'mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1' || "mongodb://localhost/localhost/scraped_mnews";
-// //Mongoose data base connection configuration.
+var uri = 'mongodb://application_user:12345678@ds237855.mlab.com:37855/heroku_v2stl7h1';
 
-// mongoose.connect(MONGODB_URI);
-// var db = mongoose.connection;
-mongoose.connect('mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1');
+mongoose.Promise = global.Promise
 
+mongoose.connect(uri);
 
 var db = mongoose.connection;
+
+
+// var MONGODB_URI = '';
+// // //Mongoose data base connection configuration.
+
+// mongoose.connect(MONGODB_URI);
+
+// var db = mongoose.connection;
+// mongoose.connect('mongodb://heroku_v2stl7h1:jgt3pt20iq7in7p1dld1nticu5@ds237855.mlab.com:37855/heroku_v2stl7h1');
+
+
+// var db = mongoose.connection;
 
 
 //Show Mongoose connection error
