@@ -24,6 +24,8 @@ var MONGODB_URI = process.env.MONGODB_URI;
 
 //Database configuration with mongoose
 mongoose.connect(MONGODB_URI);
+
+// mongoose.connect('mongodb://localhost/scraped_mnews');
 var db = mongoose.connection;
 
 //Show Mongoose connection error

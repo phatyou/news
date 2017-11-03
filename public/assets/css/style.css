@@ -1,6 +1,7 @@
 body{
-  background: url('../img/stardust.png') repeat;
+  /*background: url('../img/img_1.png') repeat;*/
   background-size: 600px;
+  background-color: black;
   font-family: 'Inconsolata', monospace;
   font-size: 16px;
   display: flex;
@@ -11,8 +12,11 @@ body{
 /*.nav-wrapper{
   background-color: #e5127d;
 }*/
+nav{
+  background: url('../img/img_1.png') repeat;
+}
 
-nav ul a {
+/*nav ul a {
     transition: background-color .3s;
     font-size: 1.5rem;
     color: #554b4e;
@@ -20,24 +24,37 @@ nav ul a {
     padding: 0 15px;
     cursor: pointer;
     font-family: 'Pacifico', cursive;
+}*/
+
+i.small {
+    font-size: 3rem;
 }
 
-.dare{
+/*.dare{
   background-color: #e5127d;
+}*/
+
+nav .brand-logo.center{
+  font-family: 'Oswald', sans-serif;
+  color: #e5127d;
+  font-size: 56px;
 }
-.brand-logo {
+/*.brand-logo {
   font-family: 'Pacifico', cursive;
+  font-family: 'Oswald', sans-serif;
+  color: #e5127d;
   background-color: #e5127d;
-}
+}*/
 
 #btn {
   font-family: 'Oswald', sans-serif;
   color: #e5127d;
+  font-size: 20px;
 }
 
-.card{
+/*.card-z-depth-3-center-align{
   background-image: url('../img/background.png');
-}
+}*/
 
 h1{
   font-family: 'Trocchi', serif;
