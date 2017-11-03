@@ -35,6 +35,9 @@ nav ul a {
   color: #e5127d;
 }
 
+.card{
+  background-image: url('../img/Masthead_YT_1.0.png');
+}
 h1{
   font-family: 'Trocchi', serif;
 }
