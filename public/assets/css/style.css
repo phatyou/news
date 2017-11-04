@@ -83,6 +83,7 @@ li{
 }*/
 .footer-copyright{
   font-family: 'Lora', serif;
+  background: url('../img/img_1.png') repeat;
   /*background-color: #e5127d;*/
 }
 
@@ -93,17 +94,6 @@ li{
   color: white;
 }
 
-/* label focus color */
-.input-field input[type=text]:focus + label {
- color: #e99e1e;
+a{
+  color:  #e5127d;
 }
-/* label underline focus color */
-.input-field input[type=text]:focus {
- border-bottom: 1px solid #e91e63;
- box-shadow: 0 1px 0 0 #000;
-}
-/* icon prefix focus color */
-.input-field .prefix.active {
- color: #ec407a;
-}
-
